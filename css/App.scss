@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+    #ext-container {
+        padding: 2px 3px 2px 1px;
+    }
+}
+
+#ext-container {
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        .checklist-items {
+            flex: 1;
+            max-height: 400px;
+            overflow: auto;
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            .checklist-item {
+                display: flex;
+
+                .checkbox {
+                    flex: 1;
+                    margin-right: 10px;
+                }
+
+                .delete-item-button {
+                    color: #da0a00;
+                }
+            }
+        }
+
+        .add-checklist-items {
+            display: flex;
+            margin-left: 10px;
+
+            .add-icon {
+                margin-right: 10px;
+                padding-top: 3px;
+                color: green;
+                font-weight: bold;
+            }
+
+            input {
+                flex: 1;
+                max-width: 200px;
+            }
+        }
+
+        .input-error {         
+            margin-left: 34px;
+        }
+    }
+}
+
+.overflow-ellipsis {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.callout-container {
+    max-height: 200px;
+}

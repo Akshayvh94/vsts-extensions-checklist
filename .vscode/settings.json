@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "files.exclude": {
+        "**/*.js": {
+            "when": "$(basename).tsx"
+        },
+        "**/*.css": {
+            "when": "$(basename).scss"
+        },
+        "**/*.css.map": {
+            "when": "$(basename).scss"
+        },
+        "**/*.vsix": true,
+        "dist/**/*": true
+    },
+    "vsicons.presets.angular": false
+}

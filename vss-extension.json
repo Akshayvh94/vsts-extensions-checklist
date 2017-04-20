@@ -1,0 +1,81 @@
+{
+    "manifestVersion": 1,
+    "id": "workitem-checklist",
+    "version": "1.0.1",
+    "name": "Work item checklist",
+    "description": "Manage personal or shared checklist for a workitem.",
+    "publisher": "mohitbagra",
+    "icons": {
+        "default": "img/logo.png"
+    },
+    "scopes": [ 
+    	"vso.work",
+        "vso.work_write"
+	 ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services.Cloud"
+        },
+        {
+            "id": "Microsoft.TeamFoundation.Server",
+            "version": "[15.1,)"
+        }
+    ],
+    "tags": [
+        "Work Item",        
+        "Form",
+        "Group"
+    ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/mohitbagra/vsts-extensions-checklist"
+    },  
+    "branding": {
+        "color": "#106ebe",
+        "theme": "dark"
+    },
+    "files": [
+        {
+            "path": "scripts",
+            "addressable": true
+        },
+        {
+            "path": "css",
+            "addressable": true
+        },
+        {
+            "path": "img",
+            "addressable": true
+        },
+        {
+            "path": "index.html",
+            "addressable": true
+        },
+        {
+            "path": "README.md",
+            "addressable": true
+        }
+    ],
+    "categories": [
+        "Plan and track"
+    ],
+    "contributions": [
+        {
+            "id": "work-item-checklist-group-hub",
+            "type": "ms.vss-work-web.work-item-form-group",
+            "description": "Work item checklist extension",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "name": "Checklist",
+                "uri": "index.html"
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+// A task runner configuration.
+{
+    "version": "0.1.0",
+    "command": "tsc",
+    "isShellCommand": true,
+    "args": ["-w", "-p", "."],
+    "showOutput": "silent",
+    "problemMatcher": "$tsc-watch"
+}

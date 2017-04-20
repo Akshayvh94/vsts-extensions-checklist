@@ -1,0 +1,9 @@
+dist
+node_modules
+typings
+*.vsix
+.vscode/*.db
+.vscode/*.db-wal
+css/*.css
+css/*.css.map
+npm-debug.log

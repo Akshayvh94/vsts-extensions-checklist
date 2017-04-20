@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "target": "es5",
+        "lib": ["dom", "es2015.promise", "es5"],
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "OfficeFabric/*": ["node_modules/office-ui-fabric-react/lib-amd/*"],
+            "VSTS_Extension/*": ["node_modules/vsts-extension-react-widgets/lib/*"]
+        },
+        "types": [
+            "q",
+            "knockout",
+            "requirejs",
+            "jquery",
+            "react",
+            "react-dom"
+        ],
+        "typeRoots": [
+            "../node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

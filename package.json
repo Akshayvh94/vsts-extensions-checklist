@@ -1,0 +1,44 @@
+{
+  "name": "workitem-checklist",
+  "license": "MIT",
+  "description": "Manage personal or shared checklist for a workitem",
+  "private": true,
+  "main": "webpack.config.js",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf dist *.vsix",
+    "cleanall": "npm run clean && rimraf typings node_modules",
+    "dev": "webpack-dev-server -d --hot --progress --colors --content-base ./ --port 8888",
+    "devssl": "webpack-dev-server -d --hot --progress --colors --https --content-base ./ --port 8888",
+    "build": "npm run clean && mkdir dist && webpack --display-error-details --progress --colors --output-path ./dist -p",
+    "package:dev": "node ./configs/packageDev",
+    "package:devssl": "node ./configs/packageDevSSL",
+    "package:release": "npm run build && node ./configs/packageRelease",    
+    "postinstall": "typings install"
+  },
+  "devDependencies": {
+    "@types/react": "^15.0.22",
+    "@types/react-dom": "^15.5.0",
+    "@types/jquery": "^2.0.41",
+    "@types/q": "^1.0.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "css-loader": "^0.28.0",
+    "ts-loader": "^2.0.3",
+    "node-sass": "^4.5.2",
+    "tfx-cli": "^0.4.5",
+    "typescript": "^2.2.2",
+    "typings": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "copy-webpack-plugin": "^4.0.1"
+  },
+  "dependencies": {
+    "vss-web-extension-sdk": "^2.115.0",
+    "es6-promise": "^4.1.0",
+    "office-ui-fabric-react": "^2.19.0",
+    "vsts-extension-react-widgets": "0.0.1"
+  }
+}
