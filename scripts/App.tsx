@@ -198,7 +198,11 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
                         checked={item.checked}
                         onChange={(ev: React.FormEvent<HTMLElement>, isChecked: boolean) => this._onCheckboxChange(item.id, isChecked) } />         
 
-                    <IconButton className="delete-item-button" icon="Delete" title="Delete item" onClick={() => this._onDeleteItem(item.id)} />
+                    <IconButton 
+                        className="delete-item-button"
+                        iconProps={{iconName: "Delete"}}
+                        title="Delete item" 
+                        onClick={() => this._onDeleteItem(item.id)} />
                 </div>
             );
         });
