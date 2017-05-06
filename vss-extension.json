@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "workitem-checklist",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "Work item checklist",
     "description": "Manage personal or shared checklist for a workitem.",
     "publisher": "mohitbagra",
@@ -22,7 +22,8 @@
         }
     ],
     "tags": [
-        "Work Item",        
+        "Work Item",
+        "Check list",
         "Form",
         "Group"
     ],

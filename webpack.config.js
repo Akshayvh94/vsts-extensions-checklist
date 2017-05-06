@@ -25,7 +25,7 @@ module.exports = {
         moduleExtensions: ["-loader"],
         alias: { 
             "OfficeFabric": path.resolve(__dirname, "node_modules/office-ui-fabric-react/lib-amd"),
-            "VSTS_Extension": path.resolve(__dirname, "node_modules/vsts-extension-react-widgets/lib")
+            "VSTS_Extension": path.resolve(__dirname, "node_modules/vsts-extension-react-widgets/lib-amd")
         }
     },
     module: {
