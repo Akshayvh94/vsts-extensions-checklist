@@ -33,9 +33,9 @@
       "tfx-cli": "^0.4.5"
   },
   "dependencies": {
-      "vss-web-extension-sdk": "^2.115.0",
+      "vss-web-extension-sdk": "^2.116.1",
       "es6-promise": "^4.1.0",
-      "office-ui-fabric-react": "^2.25.1",
-      "vsts-extension-react-widgets": "0.0.10"
+      "office-ui-fabric-react": "^2.31.0",
+      "vsts-extension-react-widgets": "0.0.15"
   }
 }

@@ -178,7 +178,7 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
             newModel.items = (newModel.items || []).concat({id: `${Date.now()}`, text: this.state.itemText, checked: false});
 
             try {
-                newModel = await ExtensionDataManager.writeDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
+                newModel = await ExtensionDataManager.addOrUpdateDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
 
                 if (this.state.isPersonalView) {
                     this.setState({...this.state, itemText: "", inputError: "", privateDataModel: newModel, saveError: false});
@@ -217,7 +217,7 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
         Utils_Array.removeWhere(newModel.items, (item: IChecklistItem) => Utils_String.equals(item.id, itemId, true));
 
         try {
-            newModel = await ExtensionDataManager.writeDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
+            newModel = await ExtensionDataManager.addOrUpdateDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
 
             if (this.state.isPersonalView) {
                 this.setState({...this.state, privateDataModel: newModel, saveError: false});
@@ -242,7 +242,7 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
         }
 
         try {
-            newModel = await ExtensionDataManager.writeDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
+            newModel = await ExtensionDataManager.addOrUpdateDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
 
             if (this.state.isPersonalView) {
                 this.setState({...this.state, privateDataModel: newModel, saveError: false});
