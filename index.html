@@ -18,7 +18,8 @@
         });
         
         // Load main entry point for extension
-        VSS.require(["scripts/App"], function (App) {
+        VSS.require(["scripts/App", "VSS/Utils/String", "VSS/Utils/Array",
+        "TFS/WorkItemTracking/ExtensionContracts", "TFS/WorkItemTracking/Services", "VSS/Flux/Store"], function (App) {
             App.init();
             VSS.notifyLoadSucceeded();
         });

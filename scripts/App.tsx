@@ -6,7 +6,6 @@ import * as ReactDOM from "react-dom";
 import { Fabric } from "OfficeFabric/Fabric";
 import { Checkbox } from 'OfficeFabric/Checkbox';
 import { IconButton } from "OfficeFabric/components/Button";
-import { TextField } from "OfficeFabric/TextField";
 import { autobind } from "OfficeFabric/Utilities";
 import {Icon} from "OfficeFabric/Icon";
 import {Pivot, PivotItem} from "OfficeFabric/Pivot";
@@ -34,6 +33,7 @@ interface IChecklistState {
     inputError: string;
     saveError: boolean;
     isPersonalView: boolean;
+    inputDisabled: boolean;
 }
 
 interface IChecklistItem {
@@ -77,7 +77,8 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
             itemText: "",
             inputError: "",
             saveError: false,
-            isPersonalView: true
+            isPersonalView: true,
+            inputDisabled: false
         }
     }
 
@@ -86,7 +87,9 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
             return <Loading />;
         }
         else if(this.state.isNewWorkItem) {
-            return <MessageBar messageBarType={MessageBarType.info}>You need to save the workitem before working with checklist.</MessageBar>;
+            return <Fabric className="fabric-container">
+                        <MessageBar messageBarType={MessageBarType.info}>You need to save the workitem before working with checklist.</MessageBar>
+                </Fabric>;
         }
         else {
             let currentModel = this.state.isPersonalView ? this.state.privateDataModel : this.state.sharedDataModel;
@@ -126,6 +129,7 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
                         <div className="add-checklist-items">
                             <IconButton className="add-icon" iconProps={{iconName: "Add"}} title="Add item" onClick={this._onAddListItem} />
                             <input
+                                disabled={this.state.inputDisabled}
                                 type="text" 
                                 value={this.state.itemText}
                                 onChange={this._onItemTextChange} 
@@ -178,17 +182,18 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
             newModel.items = (newModel.items || []).concat({id: `${Date.now()}`, text: this.state.itemText, checked: false});
 
             try {
+                this.setState({...this.state, inputDisabled: true});
                 newModel = await ExtensionDataManager.addOrUpdateDocument<IExtensionDataModel>("CheckListItems", newModel, this.state.isPersonalView);
 
                 if (this.state.isPersonalView) {
-                    this.setState({...this.state, itemText: "", inputError: "", privateDataModel: newModel, saveError: false});
+                    this.setState({...this.state, itemText: "", inputError: "", privateDataModel: newModel, saveError: false, inputDisabled: false});
                 }
                 else {
-                    this.setState({...this.state, itemText: "", inputError: "", sharedDataModel: newModel, saveError: false});
+                    this.setState({...this.state, itemText: "", inputError: "", sharedDataModel: newModel, saveError: false, inputDisabled: false});
                 }
             }
             catch (e) {
-                this.setState({...this.state, saveError: true});
+                this.setState({...this.state, saveError: true, inputDisabled: false});
             }        
         }        
     }    
@@ -198,12 +203,12 @@ export class Checklist extends AutoResizableComponent<IChecklistProps, IChecklis
             return (
                 <div className="checklist-item" key={`${index}`}>
                     <Checkbox 
-                        className="checkbox"
+                        className={item.checked ? "checkbox checked" : "checkbox"}
                         label={item.text}
                         checked={item.checked}
                         onChange={(ev: React.FormEvent<HTMLElement>, isChecked: boolean) => this._onCheckboxChange(item.id, isChecked) } />         
 
-                    <IconButton className="delete-item-button" iconProps={{iconName: "Delete"}} title="Delete item" onClick={() => this._onDeleteItem(item.id)} />
+                    <IconButton className="delete-item-button" iconProps={{iconName: "Trash"}} title="Delete item" onClick={() => this._onDeleteItem(item.id)} />
                 </div>
             );
         });

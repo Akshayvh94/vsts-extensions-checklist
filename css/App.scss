@@ -26,6 +26,12 @@ body {
                 .checkbox {
                     flex: 1;
                     margin-right: 10px;
+
+                    &.checked {
+                        label, span {
+                            text-decoration: line-through;
+                        }
+                    }
                 }
 
                 .delete-item-button {

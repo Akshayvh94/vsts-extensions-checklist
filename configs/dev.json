@@ -1,4 +1,6 @@
 {
     "public": false,
+    "publisher": "mohitbagra-dev",
+    "name": "Work item checklist - Dev",
     "baseUri": "https://localhost:8888"
 }

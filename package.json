@@ -1,41 +1,41 @@
 {
-  "name": "workitem-checklist",
-  "license": "MIT",
-  "description": "Manage personal or shared checklist for a workitem",
-  "private": true,
-  "main": "webpack.config.js",
-  "version": "1.0.0",
-  "scripts": {
-      "clean": "rimraf dist *.vsix",
-      "clean:all": "npm run clean && rimraf typings node_modules",
-      "build": "npm run clean && mkdir dist && webpack --display-error-details --progress --colors --output-path ./dist -p",
-      "start": "webpack-dev-server -d --hot --progress --colors --https --content-base ./ --port 8888",    
-      "package:dev": "node ./configs/packageDev",
-      "package:release": "npm run build && node ./configs/packageRelease",    
-      "postinstall": "typings install"
-  },
-  "devDependencies": {
-      "@types/react": "^15.0.24",
-      "@types/react-dom": "^15.5.0",
-      "@types/jquery": "^2.0.41",
-      "webpack": "^2.5.0",
-      "webpack-dev-server": "^2.4.5",
-      "rimraf": "^2.6.1",
-      "sass-loader": "^6.0.3",
-      "style-loader": "^0.17.0",
-      "css-loader": "^0.28.1",
-      "ts-loader": "^2.0.3",
-      "node-sass": "^4.5.2",
-      "typescript": "^2.3.2",
-      "typings": "^2.1.1",        
-      "uglifyjs-webpack-plugin": "^0.4.3",        
-      "copy-webpack-plugin": "4.0.1",
-      "tfx-cli": "^0.4.5"
-  },
-  "dependencies": {
-      "vss-web-extension-sdk": "^2.116.1",
-      "es6-promise": "^4.1.0",
-      "office-ui-fabric-react": "^2.31.0",
-      "vsts-extension-react-widgets": "0.0.15"
-  }
+      "name": "workitem-checklist",
+      "license": "MIT",
+      "description": "Manage personal or shared checklist for a workitem",
+      "private": true,
+      "main": "webpack.config.js",
+      "version": "1.0.0",
+      "scripts": {
+            "clean": "rimraf dist *.vsix",
+            "clean:all": "npm run clean && rimraf typings node_modules",
+            "build": "npm run clean && mkdir dist && webpack --display-error-details --progress --colors --output-path ./dist -p",
+            "start": "webpack-dev-server -d --hot --progress --colors --https --content-base ./ --port 8888",
+            "package:dev": "node ./configs/packageDev",
+            "package:release": "npm run build && node ./configs/packageRelease",
+            "postinstall": "typings install"
+      },
+      "devDependencies": {
+            "@types/react": "15.0.29",
+            "@types/react-dom": "15.5.0",
+            "@types/jquery": "2.0.41",
+            "webpack": "3.0.0",
+            "webpack-dev-server": "2.5.0",
+            "rimraf": "2.6.1",
+            "sass-loader": "6.0.6",
+            "style-loader": "0.18.2",
+            "css-loader": "0.28.4",
+            "ts-loader": "2.2.0",
+            "node-sass": "4.5.3",
+            "typescript": "2.3.4",
+            "typings": "2.1.1",
+            "uglifyjs-webpack-plugin": "0.4.6",
+            "copy-webpack-plugin": "4.0.1",
+            "tfx-cli": "0.4.9"
+      },
+      "dependencies": {
+            "vss-web-extension-sdk": "2.117.0",
+            "es6-promise": "4.1.0",
+            "office-ui-fabric-react": "4.0.0",
+            "vsts-extension-react-widgets": "0.0.28"
+      }
 }
